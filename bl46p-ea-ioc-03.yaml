@@ -1,16 +1,23 @@
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: bl46p-example
+  labels:
+    app: bl46p-example
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bl46p-example
   template:
     metadata:
-      name: bl46p-example-pod
+      labels:
+        app: bl46p-example
     spec:
       containers:
       - name: bl46p-example
-        image: gcr.io/diamond-privreg/controls/work/ioc/bl46p-ea-ioc-03
-      restartPolicy: Never
-
+      image: gcr.io/diamond-privreg/controls/work/ioc/bl46p-ea-ioc-03:latest
+      ports:
+      - containerPort: 5064
   
   
