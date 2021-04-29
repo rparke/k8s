@@ -17,11 +17,6 @@ spec:
       containers:
       - name: bl46p-example
         image: gcr.io/diamond-privreg/controls/work/ioc/bl46p-ea-ioc-03:latest
-        command:
-        - bash
-        args:
-        - /R7.0.5/support/BL46P-EA-IOC-03/bin/linux-x86_64/stBL46P-EA-IOC-03.sh
-
         ports:
         - containerPort: 5064
   
